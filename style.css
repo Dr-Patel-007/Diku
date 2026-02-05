@@ -52,27 +52,22 @@ body {
 
 /* NEW: Floor text (no rotation, lies flat) */
 #floor-text {
-  font-family: "Georgia", "Times New Roman", serif;
   position: absolute;
-
-  /* center of carousel */
   top: 50%;
   left: 50%;
+  transform: translate(-50%, 150px) rotateX(90deg);
 
-  /* aligned with image floor + corrected orientation */
-  transform: translate(-50%, 150px) rotateX(90deg) rotateY(180deg) rotateZ(180deg);
-
+  font-family: "Georgia", serif;
   width: 600px;
   padding: 20px 30px;
   font-size: 28px;
   line-height: 1.8;
-  letter-spacing: 1px;
   text-align: center;
-
   color: #fff;
-  text-shadow: 0 6px 16px rgba(0, 0, 0, 0.85);
+  text-shadow: 0 6px 16px rgba(0,0,0,0.85);
   pointer-events: none;
 }
+
 
 
 #ground {
@@ -100,6 +95,7 @@ body {
   from { transform: rotateY(360deg); }
   to { transform: rotateY(0deg); }
 }
+
 
 
 
