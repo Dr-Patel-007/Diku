@@ -185,4 +185,27 @@ function createLove() {
 
 setInterval(createLove, 1200);
 
+// ===== Sprinkling stars around the window =====
+function sprinkleStar() {
+  const star = document.createElement("div");
+  star.className = "star";
+
+  // Random position anywhere on the screen
+  star.style.left = Math.random() * 100 + "vw";
+  star.style.top = Math.random() * 100 + "vh";
+
+  // Random twinkle speed
+  star.style.animationDuration = (1.5 + Math.random() * 2) + "s";
+
+  document.body.appendChild(star);
+
+  // Remove after a while to avoid buildup
+  setTimeout(() => {
+    if (star.parentNode) star.parentNode.removeChild(star);
+  }, 4000);
+}
+
+// Create a new star every 150ms
+setInterval(sprinkleStar, 150);
+
 
