@@ -12,7 +12,7 @@ var ospin = document.getElementById('spin-container');
 var aImg = ospin.getElementsByTagName('img');
 var aVid = ospin.getElementsByTagName('video');
 
-// FIX: Safe array merge (no spread operator)
+// FIX: Safe array merge
 var aEle = [];
 for (var i = 0; i < aImg.length; i++) aEle.push(aImg[i]);
 for (var j = 0; j < aVid.length; j++) aEle.push(aVid[j]);
@@ -31,7 +31,7 @@ function init(delayTime) {
     aEle[i].style.transform =
       "rotateY(" + (i * (360 / aEle.length)) + "deg) translateZ(" + radius + "px)";
     aEle[i].style.transition = "transform 1s";
-    aEle[i].style.transitionDelay = delayTime || (aEle.length - i) / 4 + "s";
+    aEle[i].style.transitionDelay = (delayTime || (aEle.length - i) / 4) + "s";
   }
 }
 
