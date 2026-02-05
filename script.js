@@ -119,10 +119,10 @@ document.onmousewheel = function(e) {
 // ===== Enable audio autoplay after first user interaction =====
 const audio = document.getElementById("bg-audio");
 
-// Try to play immediately (desktop may allow it)
+// Desktop browsers may allow autoplay
 audio.play().catch(() => {});
 
-// Guaranteed mobile fallback
+// Mobile fallback — guaranteed to work
 function enableAudio() {
     audio.play().catch(() => {});
     document.removeEventListener("pointerdown", enableAudio);
@@ -131,6 +131,3 @@ function enableAudio() {
 
 document.addEventListener("pointerdown", enableAudio);
 document.addEventListener("touchstart", enableAudio);
-
-
-
