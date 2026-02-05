@@ -196,3 +196,22 @@ body {
   100% { transform: translateY(120vh) rotate(360deg); }
 }
 
+/* Sprinkling stars around the carousel */
+.star {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: star-twinkle 2s infinite ease-in-out;
+}
+
+@keyframes star-twinkle {
+  0% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.8); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+
