@@ -183,3 +183,16 @@ body {
   50% { opacity: 1; transform: scale(1.8); }
   100% { opacity: 0.2; transform: scale(1); }
 }
+
+.love {
+  position: fixed;
+  animation: love-fall 6s linear forwards;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+@keyframes love-fall {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(120vh) rotate(360deg); }
+}
+
