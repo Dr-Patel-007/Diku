@@ -75,17 +75,16 @@ body {
   top: 100%;
   left: 50%;
 
-  /* floor orientation */
+  /* LIE FLAT ON THE FLOOR */
   transform:
     translate(-50%, -50%)
-    rotateX(90deg)
-    translateZ(60px);   /* ⭐ lifts text slightly for readability */
+    rotateX(-90deg);
 
-  /* readability fixes */
-  width: 600px;         /* wider so it doesn’t compress */
+  /* readability */
+  width: 600px;
   padding: 20px 30px;
   font-size: 28px;
-  line-height: 1.8;     /* KEY: removes squeeze */
+  line-height: 1.8;
   letter-spacing: 1px;
   text-align: center;
 
@@ -149,6 +148,7 @@ body {
             transform: rotateY(0deg);
   }
 }
+
 
 
 
