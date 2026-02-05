@@ -6,33 +6,37 @@
 html,
 body {
   height: 100%;
-  touch-action: none;
+  /* for touch screen */
+  touch-action: none; 
 }
 
 body {
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background: #111;
-  perspective: 1000px;
-  transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
-/* REMOVE rotation from the container so text doesn't inherit it */
 #drag-container, #spin-container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: auto;
-  transform-style: preserve-3d;
-}
-
-/* APPLY tilt ONLY to images, not to text */
-#spin-container img,
-#spin-container video {
-  transform: rotateX(-10deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateX(-10deg);
+          transform: rotateX(-10deg);
 }
 
 #drag-container img, #drag-container video {
-  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
   position: absolute;
   left: 0;
   top: 0;
@@ -41,34 +45,26 @@ body {
   line-height: 200px;
   font-size: 50px;
   text-align: center;
-  box-shadow: 0 0 8px #fff;
+  -webkit-box-shadow: 0 0 8px #fff;
+          box-shadow: 0 0 8px #fff;
   -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
 }
 
 #drag-container img:hover, #drag-container video:hover {
-  box-shadow: 0 0 15px #fffd;
+  -webkit-box-shadow: 0 0 15px #fffd;
+          box-shadow: 0 0 15px #fffd;
   -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
 }
 
-/* NEW: Floor text (no rotation, lies flat) */
-#floor-text {
+#drag-container p {
+  font-family: Serif;
   position: absolute;
-  top: 50%;
+  top: 100%;
   left: 50%;
-  transform: translate(-50%, 150px) rotateX(90deg);
-
-  font-family: "Georgia", serif;
-  width: 600px;
-  padding: 20px 30px;
-  font-size: 28px;
-  line-height: 1.8;
-  text-align: center;
+  -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+          transform: translate(-50%,-50%) rotateX(90deg);
   color: #fff;
-  text-shadow: 0 6px 16px rgba(0,0,0,0.85);
-  pointer-events: none;
 }
-
-
 
 #ground {
   width: 900px;
@@ -76,8 +72,9 @@ body {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translate(-50%, -50%) rotateX(90deg);
-  background: radial-gradient(circle farthest-side, #9993, transparent);
+  -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+          transform: translate(-50%,-50%) rotateX(90deg);
+  background: -webkit-radial-gradient(center center, farthest-side , #9993, transparent);
 }
 
 #music-container {
@@ -86,29 +83,40 @@ body {
   left: 0;
 }
 
+@-webkit-keyframes spin {
+  from{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  } to{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
 @keyframes spin {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
+  from{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  } to{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
 }
-
+@-webkit-keyframes spinRevert {
+  from{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  } to{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
 @keyframes spinRevert {
-  from { transform: rotateY(360deg); }
-  to { transform: rotateY(0deg); }
+  from{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  } to{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
