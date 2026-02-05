@@ -77,7 +77,8 @@ body {
 
   /* REMOVE ground rotation */
   transform: translate(-50%, -50%);
-
+  transform-style: flat;
+  
   /* Make it readable */
   width: 420px;
   text-align: center;
@@ -142,6 +143,7 @@ body {
             transform: rotateY(0deg);
   }
 }
+
 
 
 
