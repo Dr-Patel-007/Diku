@@ -115,3 +115,14 @@ document.onmousewheel = function(e) {
   radius += d;
   init(1);
 };
+
+// ===== Enable audio autoplay after first user interaction =====
+const audio = document.querySelector("audio");
+
+function tryPlayAudio() {
+  audio.play().catch(() => {});
+  document.removeEventListener("pointerdown", tryPlayAudio);
+}
+
+document.addEventListener("pointerdown", tryPlayAudio);
+
