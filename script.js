@@ -131,3 +131,49 @@ function enableAudio() {
 
 document.addEventListener("pointerdown", enableAudio);
 document.addEventListener("touchstart", enableAudio);
+
+/* Floating hearts */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (20 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 4000);
+}
+
+setInterval(createHeart, 800);
+
+/* Smooth audio fade-in */
+const audio = document.getElementById("bg-audio");
+audio.volume = 0;
+
+function fadeInAudio() {
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 1) {
+      vol += 0.02;
+      audio.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 120);
+}
+
+/* Mobile-safe audio start */
+function enableAudio() {
+  audio.play().then(fadeInAudio).catch(() => {});
+  document.removeEventListener("pointerdown", enableAudio);
+  document.removeEventListener("touchstart", enableAudio);
+}
+
+document.addEventListener("pointerdown", enableAudio);
+document.addEventListener("touchstart", enableAudio);
+
+/* Desktop autoplay attempt */
+audio.play().catch(() => {});
+
+
+
