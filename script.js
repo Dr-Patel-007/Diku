@@ -117,12 +117,20 @@ document.onmousewheel = function(e) {
 };
 
 // ===== Enable audio autoplay after first user interaction =====
-const audio = document.querySelector("audio");
+const audio = document.getElementById("bg-audio");
 
-function tryPlayAudio() {
-  audio.play().catch(() => {});
-  document.removeEventListener("pointerdown", tryPlayAudio);
+// Try to play immediately (desktop may allow it)
+audio.play().catch(() => {});
+
+// Guaranteed mobile fallback
+function enableAudio() {
+    audio.play().catch(() => {});
+    document.removeEventListener("pointerdown", enableAudio);
+    document.removeEventListener("touchstart", enableAudio);
 }
 
-document.addEventListener("pointerdown", tryPlayAudio);
+document.addEventListener("pointerdown", enableAudio);
+document.addEventListener("touchstart", enableAudio);
+
+
 
