@@ -131,3 +131,18 @@ function enableAudio() {
 
 document.addEventListener("pointerdown", enableAudio);
 document.addEventListener("touchstart", enableAudio);
+
+// ===== Floating hearts =====
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (20 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => {
+    if (heart.parentNode) heart.parentNode.removeChild(heart);
+  }, 4000);
+}
+
+setInterval(createHeart, 800);
