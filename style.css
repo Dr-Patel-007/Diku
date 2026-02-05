@@ -56,30 +56,35 @@ body {
 }
 
 /* ============================= */
-/* 💖 MESSAGE TEXT (FIXED)       */
+/* 💖 CENTER MESSAGE (INSIDE)    */
 /* ============================= */
 
 #drag-container p {
   position: absolute;
-  top: 130%;                          /* more breathing space */
   left: 50%;
-  transform: translate(-50%, -50%) rotateX(75deg);
+  top: 50%;
 
-  width: 650px;                       /* KEY FIX */
-  padding: 24px;
+  /* INSIDE the carousel radius */
+  transform:
+    translate(-50%, -50%)
+    translateZ(180px);
+
+  width: 520px;
+  padding: 20px;
 
   font-family: "Georgia", serif;
-  font-size: 28px;
-  line-height: 1.7;
+  font-size: 26px;
+  line-height: 1.6;
   letter-spacing: 1px;
   text-align: center;
   color: #ffffff;
 
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
 }
 
 /* ============================= */
-/* Ground / Floor                */
+/* Ground (optional)             */
 /* ============================= */
 
 #ground {
@@ -127,6 +132,7 @@ body {
     transform: rotateY(0deg);
   }
 }
+
 
 
 
@@ -259,3 +265,4 @@ body {
 }
 
 */
+
