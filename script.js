@@ -132,7 +132,7 @@ function enableAudio() {
 document.addEventListener("pointerdown", enableAudio);
 document.addEventListener("touchstart", enableAudio);
 
-// ===== Floating hearts =====
+/*// ===== Floating hearts =====
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -145,4 +145,42 @@ function createHeart() {
   }, 4000);
 }
 
-setInterval(createHeart, 800);
+setInterval(createHeart, 800);*/
+
+// ===== Twinkling stars =====
+function createStar() {
+  const star = document.createElement("div");
+  star.className = "stars";
+  star.style.left = Math.random() * 100 + "vw";
+  star.style.top = Math.random() * 100 + "vh";
+  star.style.animationDuration = (1 + Math.random() * 2) + "s";
+  document.body.appendChild(star);
+
+  setTimeout(() => {
+    if (star.parentNode) star.parentNode.removeChild(star);
+  }, 3000);
+}
+
+setInterval(createStar, 200);
+
+// ===== Floating love emojis =====
+function createLove() {
+  const love = document.createElement("div");
+  love.className = "love";
+
+  const emojis = ["💖", "💘", "💞", "💗", "💓"];
+  love.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+  love.style.left = Math.random() * 100 + "vw";
+  love.style.fontSize = (20 + Math.random() * 20) + "px";
+
+  document.body.appendChild(love);
+
+  setTimeout(() => {
+    if (love.parentNode) love.parentNode.removeChild(love);
+  }, 5000);
+}
+
+setInterval(createLove, 1200);
+
+
