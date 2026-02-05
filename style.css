@@ -78,7 +78,7 @@ body {
   /* LIE FLAT ON THE FLOOR */
   transform:
     translate(-50%, -50%)
-    rotateX(-80deg);
+    rotateX(-10deg);
 
   /* readability */
   width: 600px;
@@ -148,6 +148,7 @@ body {
             transform: rotateY(0deg);
   }
 }
+
 
 
 
