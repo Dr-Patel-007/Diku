@@ -147,23 +147,25 @@ function createHeart() {
 
 setInterval(createHeart, 800);*/
 
-// ===== Twinkling stars =====
+// ===== Falling Stars =====
 function createStar() {
   const star = document.createElement("div");
   star.className = "stars";
+
   star.style.left = Math.random() * 100 + "vw";
-  star.style.top = Math.random() * 100 + "vh";
-  star.style.animationDuration = (1 + Math.random() * 2) + "s";
+  star.style.fontSize = (2 + Math.random() * 3) + "px"; // tiny stars
+
   document.body.appendChild(star);
 
   setTimeout(() => {
     if (star.parentNode) star.parentNode.removeChild(star);
-  }, 3000);
+  }, 4000);
 }
 
-setInterval(createStar, 200);
+setInterval(createStar, 300);
 
-// ===== Floating love emojis =====
+
+// ===== Falling Love Emojis =====
 function createLove() {
   const love = document.createElement("div");
   love.className = "love";
@@ -184,23 +186,3 @@ function createLove() {
 setInterval(createLove, 1200);
 
 
-
-function createLove() {
-  const love = document.createElement("div");
-  love.className = "love";
-
-  const emojis = ["💖", "💘", "💞", "💗", "💓"];
-  love.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-
-  love.style.left = Math.random() * 100 + "vw";
-  love.style.top = "-20px";  // 💕 start ABOVE the screen
-  love.style.fontSize = (20 + Math.random() * 20) + "px";
-
-  document.body.appendChild(love);
-
-  setTimeout(() => {
-    if (love.parentNode) love.parentNode.removeChild(love);
-  }, 6000);
-}
-
-setInterval(createLove, 1200);
