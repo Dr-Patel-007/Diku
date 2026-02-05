@@ -4,132 +4,107 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
+  width: 100%;
   height: 100%;
-  touch-action: none;
+  overflow: hidden;
+  background: #111;
+  font-family: Georgia, serif;
 }
 
 body {
-  overflow: hidden;
   display: flex;
-  background: #111;
+  justify-content: center;
+  align-items: center;
   perspective: 1200px;
-  transform-style: preserve-3d;
 }
 
 /* ============================= */
-/* Carousel Containers           */
+/* Main Container                */
 /* ============================= */
 
-#drag-container,
-#spin-container {
+#drag-container {
   position: relative;
-  display: flex;
-  margin: auto;
+  width: 600px;
+  height: 600px;
   transform-style: preserve-3d;
-  transform: rotateX(-10deg);
 }
 
 /* ============================= */
-/* Images / Videos               */
+/* Rotating Image Ring           */
 /* ============================= */
 
-#drag-container img,
-#drag-container video {
+#spin-container {
   position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  box-shadow: 0 0 8px #fff;
-  -webkit-box-reflect: below 10px
-    linear-gradient(transparent, transparent, #0005);
+  animation: spin 30s linear infinite;
 }
 
-#drag-container img:hover,
-#drag-container video:hover {
-  box-shadow: 0 0 15px #fffd;
-  -webkit-box-reflect: below 10px
-    linear-gradient(transparent, transparent, #0007);
-}
-
-/* ============================= */
-/* 💖 CENTER MESSAGE (INSIDE)    */
-/* ============================= */
-
-#drag-container p {
+/* Images */
+#spin-container img {
   position: absolute;
-  left: 50%;
+  width: 180px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.8);
+  -webkit-box-reflect: below 10px
+    linear-gradient(transparent, transparent, rgba(0,0,0,0.6));
+}
+
+/* ============================= */
+/* 💖 CENTER TEXT                */
+/* ============================= */
+
+#center-text {
+  position: absolute;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  /* INSIDE the carousel radius */
-  transform:
-    translate(-50%, -50%)
-    translateZ(180px);
+  width: 420px;
+  padding: 22px;
 
-  width: 520px;
-  padding: 20px;
-
-  font-family: "Georgia", serif;
+  text-align: center;
+  color: #fff;
   font-size: 26px;
   line-height: 1.6;
   letter-spacing: 1px;
-  text-align: center;
-  color: #ffffff;
 
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+
+  text-shadow: 0 4px 12px rgba(0,0,0,0.8);
   pointer-events: none;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
 }
 
 /* ============================= */
-/* Ground (optional)             */
+/* Ground (subtle depth)         */
 /* ============================= */
 
 #ground {
-  width: 900px;
-  height: 900px;
   position: absolute;
+  width: 800px;
+  height: 800px;
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%) rotateX(90deg);
-  background: radial-gradient(
-    farthest-side,
-    rgba(255, 255, 255, 0.15),
-    transparent
-  );
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
 }
 
 /* ============================= */
-/* Music                         */
-/* ============================= */
-
-#music-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* ============================= */
-/* Animations                    */
+/* Animation                     */
 /* ============================= */
 
 @keyframes spin {
   from {
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) rotateX(-10deg);
   }
   to {
-    transform: rotateY(360deg);
-  }
-}
-
-@keyframes spinRevert {
-  from {
-    transform: rotateY(360deg);
-  }
-  to {
-    transform: rotateY(0deg);
+    transform: rotateY(360deg) rotateX(-10deg);
   }
 }
 
@@ -265,4 +240,5 @@ body {
 }
 
 */
+
 
