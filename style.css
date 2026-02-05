@@ -55,11 +55,12 @@ body {
   font-family: "Georgia", "Times New Roman", serif;
   position: absolute;
 
-  top: 100%;
+  /* CENTER OF THE CAROUSEL */
+  top: 50%;
   left: 50%;
 
-  /* LIE FLAT ON THE FLOOR */
-  transform: translate(-50%, -50%) rotateX(-90deg);
+  /* MOVE DOWN TO THE FLOOR + LIE FLAT */
+  transform: translate(-50%, 220px) rotateX(-90deg);
 
   width: 600px;
   padding: 20px 30px;
@@ -72,6 +73,7 @@ body {
   text-shadow: 0 6px 16px rgba(0, 0, 0, 0.85);
   pointer-events: none;
 }
+
 
 #ground {
   width: 900px;
@@ -98,6 +100,7 @@ body {
   from { transform: rotateY(360deg); }
   to { transform: rotateY(0deg); }
 }
+
 
 
 
