@@ -56,6 +56,7 @@ body {
   -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
 }
 
+/*
 #drag-container p {
   font-family: Serif;
   position: absolute;
@@ -64,6 +65,27 @@ body {
   -webkit-transform: translate(-50%,-50%) rotateX(90deg);
           transform: translate(-50%,-50%) rotateX(90deg);
   color: #fff;
+}*/
+
+#drag-container p {
+  font-family: Serif;
+  position: absolute;
+
+  /* CENTER the text */
+  top: 50%;
+  left: 50%;
+
+  /* REMOVE ground rotation */
+  transform: translate(-50%, -50%);
+
+  /* Make it readable */
+  width: 420px;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 26px;
+
+  color: #fff;
+  pointer-events: none;
 }
 
 #ground {
@@ -120,6 +142,7 @@ body {
             transform: rotateY(0deg);
   }
 }
+
 
 
 
