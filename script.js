@@ -39,21 +39,21 @@ function init(delayTime) {
 
 function applyTranform(obj) {
   // Constrain the angle of camera (between 0 and 180)
-  if (tY > 180) tY = 180;
-  if (tY < 0) tY = 0;
+  if(tY > 180) tY = 180;
+  if(tY < 0) tY = 0;
 
   // Apply the angle
   obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
 }
 
 function playSpin(yes) {
-  ospin.style.animationPlayState = (yes ? 'running' : 'paused');
+  ospin.style.animationPlayState = (yes?'running':'paused');
 }
 
 var sX, sY, nX, nY, desX = 0,
-  desY = 0,
-  tX = 0,
-  tY = 10;
+    desY = 0,
+    tX = 0,
+    tY = 10;
 
 // auto spin
 if (autoRotate) {
@@ -75,12 +75,12 @@ document.onpointerdown = function (e) {
   clearInterval(odrag.timer);
   e = e || window.event;
   var sX = e.clientX,
-    sY = e.clientY;
+      sY = e.clientY;
 
   this.onpointermove = function (e) {
     e = e || window.event;
     var nX = e.clientX,
-      nY = e.clientY;
+        nY = e.clientY;
     desX = nX - sX;
     desY = nY - sY;
     tX += desX * 0.1;
@@ -109,55 +109,25 @@ document.onpointerdown = function (e) {
   return false;
 };
 
-document.onmousewheel = function (e) {
+document.onmousewheel = function(e) {
   e = e || window.event;
   var d = e.wheelDelta / 20 || -e.detail;
   radius += d;
   init(1);
 };
 
-// ===== AUDIO with fade-in =====
+// ===== Enable audio autoplay after first user interaction =====
 const audio = document.getElementById("bg-audio");
-if (audio) {
-  audio.volume = 0;
 
-  function fadeInAudio() {
-    let vol = 0;
-    const fade = setInterval(() => {
-      if (vol < 1) {
-        vol += 0.02;
-        audio.volume = vol;
-      } else {
-        clearInterval(fade);
-      }
-    }, 120);
-  }
+// Desktop browsers may allow autoplay
+audio.play().catch(() => {});
 
-  // Desktop browsers may allow autoplay
-  audio.play().then(fadeInAudio).catch(() => {});
-
-  // Mobile fallback — user interaction
-  function enableAudio() {
-    audio.play().then(fadeInAudio).catch(() => {});
+// Mobile fallback — guaranteed to work
+function enableAudio() {
+    audio.play().catch(() => {});
     document.removeEventListener("pointerdown", enableAudio);
     document.removeEventListener("touchstart", enableAudio);
-  }
-
-  document.addEventListener("pointerdown", enableAudio);
-  document.addEventListener("touchstart", enableAudio);
 }
 
-// ===== Floating hearts =====
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (20 + Math.random() * 20) + "px";
-  document.body.appendChild(heart);
-  setTimeout(() => {
-    if (heart.parentNode) heart.parentNode.removeChild(heart);
-  }, 4000);
-}
-
-setInterval(createHeart, 800);
+document.addEventListener("pointerdown", enableAudio);
+document.addEventListener("touchstart", enableAudio);
