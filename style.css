@@ -56,6 +56,7 @@ body {
   -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
 }
 
+/*
 #drag-container p {
   font-family: Serif;
   position: absolute;
@@ -64,7 +65,34 @@ body {
   -webkit-transform: translate(-50%,-50%) rotateX(90deg);
           transform: translate(-50%,-50%) rotateX(90deg);
   color: #fff;
+}*/
+
+#drag-container p {
+  font-family: "Georgia", "Times New Roman", serif;
+  position: absolute;
+
+  /* place it on the floor */
+  top: 100%;
+  left: 50%;
+
+  /* LIE FLAT ON THE FLOOR */
+  transform:
+    translate(-50%, -50%)
+    rotateX(-90deg);
+
+  /* readability */
+  width: 600px;
+  padding: 20px 30px;
+  font-size: 28px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  text-align: center;
+
+  color: #fff;
+  text-shadow: 0 6px 16px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
 }
+
 
 #ground {
   width: 900px;
@@ -120,3 +148,11 @@ body {
             transform: rotateY(0deg);
   }
 }
+
+
+
+
+
+
+
+
