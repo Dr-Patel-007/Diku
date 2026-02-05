@@ -184,3 +184,23 @@ function createLove() {
 setInterval(createLove, 1200);
 
 
+
+function createLove() {
+  const love = document.createElement("div");
+  love.className = "love";
+
+  const emojis = ["💖", "💘", "💞", "💗", "💓"];
+  love.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+  love.style.left = Math.random() * 100 + "vw";
+  love.style.top = "-20px";  // 💕 start ABOVE the screen
+  love.style.fontSize = (20 + Math.random() * 20) + "px";
+
+  document.body.appendChild(love);
+
+  setTimeout(() => {
+    if (love.parentNode) love.parentNode.removeChild(love);
+  }, 6000);
+}
+
+setInterval(createLove, 1200);
