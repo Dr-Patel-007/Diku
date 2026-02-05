@@ -68,26 +68,28 @@ body {
 }*/
 
 #drag-container p {
-  font-family: Serif;
+  font-family: "Georgia", "Times New Roman", serif;
   position: absolute;
 
-  /* CENTER the text */
   top: 50%;
   left: 50%;
-
-  /* REMOVE ground rotation */
   transform: translate(-50%, -50%);
   transform-style: flat;
-  
-  /* Make it readable */
-  width: 420px;
-  text-align: center;
-  line-height: 1.6;
-  font-size: 26px;
 
+  /* ✨ readability fixes */
+  width: 520px;              /* more horizontal space */
+  padding: 20px 28px;        /* breathing room */
+  font-size: 28px;           /* slightly bigger */
+  line-height: 1.75;         /* KEY: removes squeeze */
+  letter-spacing: 0.8px;     /* subtle elegance */
+
+  text-align: center;
   color: #fff;
+
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.8);
   pointer-events: none;
 }
+
 
 #ground {
   width: 900px;
@@ -143,6 +145,7 @@ body {
             transform: rotateY(0deg);
   }
 }
+
 
 
 
