@@ -68,31 +68,25 @@ body {
 }*/
 
 #drag-container p {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: Serif;
   position: absolute;
 
-  /* place it on the floor */
-  top: 100%;
+  /* CENTER the text */
+  top: 50%;
   left: 50%;
 
-  /* LIE FLAT ON THE FLOOR */
-  transform:
-    translate(-50%, -50%)
-    rotateX(-90deg);
+  /* REMOVE ground rotation */
+  transform: translate(-50%, -50%);
 
-  /* readability */
-  width: 600px;
-  padding: 20px 30px;
-  font-size: 28px;
-  line-height: 1.8;
-  letter-spacing: 1px;
+  /* Make it readable */
+  width: 420px;
   text-align: center;
+  line-height: 1.6;
+  font-size: 26px;
 
   color: #fff;
-  text-shadow: 0 6px 16px rgba(0, 0, 0, 0.85);
   pointer-events: none;
 }
-
 
 #ground {
   width: 900px;
@@ -148,10 +142,6 @@ body {
             transform: rotateY(0deg);
   }
 }
-
-
-
-
 
 
 
