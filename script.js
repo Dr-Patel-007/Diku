@@ -39,15 +39,15 @@ function init(delayTime) {
 
 function applyTranform(obj) {
   // Constrain the angle of camera (between 0 and 180)
-  if(tY > 180) tY = 180;
-  if(tY < 0) tY = 0;
+  if (tY > 180) tY = 180;
+  if (tY < 0) tY = 0;
 
   // Apply the angle
   obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
 }
 
 function playSpin(yes) {
-  ospin.style.animationPlayState = (yes?'running':'paused');
+  ospin.style.animationPlayState = (yes ? 'running' : 'paused');
 }
 
 var sX, sY, nX, nY, desX = 0,
@@ -131,3 +131,18 @@ function enableAudio() {
 
 document.addEventListener("pointerdown", enableAudio);
 document.addEventListener("touchstart", enableAudio);
+
+// ===== Floating hearts =====
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (20 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => {
+    if (heart.parentNode) heart.parentNode.removeChild(heart);
+  }, 4000);
+}
+
+setInterval(createHeart, 800);
