@@ -208,4 +208,148 @@ function sprinkleStar() {
 // Create a new star every 150ms
 setInterval(sprinkleStar, 150);
 
+/* Floating Hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
 
+    // Random horizontal position
+    heart.style.left = Math.random() * 100 + "vw";
+
+    // Random size
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+
+    // Random animation duration
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.getElementById("hearts-container").appendChild(heart);
+
+    // Remove after animation
+    setTimeout(() => heart.remove(), 5000);
+}
+
+// Create a heart every 300ms
+setInterval(createHeart, 300);
+
+function createPetal() {
+  const petal = document.createElement("div");
+  petal.className = "petal";
+  petal.innerHTML = "🌸";
+
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.fontSize = (16 + Math.random() * 12) + "px";
+
+  document.body.appendChild(petal);
+
+  setTimeout(() => petal.remove(), 6000);
+}
+
+setInterval(createPetal, 900);
+
+function createButterfly() {
+  const b = document.createElement("div");
+  b.className = "butterfly";
+
+  const butterflies = ["🦋", "🪽"];
+  b.innerHTML = butterflies[Math.floor(Math.random() * butterflies.length)];
+
+  b.style.left = Math.random() * 100 + "vw";
+  b.style.fontSize = (20 + Math.random() * 15) + "px";
+
+  document.body.appendChild(b);
+
+  setTimeout(() => b.remove(), 7000);
+}
+
+setInterval(createButterfly, 1500);
+
+
+function createBalloon() {
+  const balloon = document.createElement("div");
+  balloon.className = "balloon";
+
+  const balloons = ["🎈", "💗", "💝"];
+  balloon.innerHTML = balloons[Math.floor(Math.random() * balloons.length)];
+
+  balloon.style.left = Math.random() * 100 + "vw";
+
+  document.body.appendChild(balloon);
+
+  setTimeout(() => balloon.remove(), 8000);
+}
+
+setInterval(createBalloon, 2000);
+
+
+function addFog() {
+  const fog = document.createElement("div");
+  fog.className = "fog";
+  document.body.appendChild(fog);
+}
+addFog();
+
+
+function createParticle() {
+  const p = document.createElement("div");
+  p.className = "particle";
+
+  p.style.left = Math.random() * 100 + "vw";
+
+  document.body.appendChild(p);
+  setTimeout(() => p.remove(), 5000);
+}
+
+setInterval(createParticle, 250);
+
+document.addEventListener("mousemove", (e) => {
+  const h = document.createElement("div");
+  h.className = "cursor-heart";
+  h.innerHTML = "💗";
+
+  h.style.left = e.clientX + "px";
+  h.style.top = e.clientY + "px";
+
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 1000);
+});
+
+function createConstellation() {
+  const star = document.createElement("div");
+  star.className = "constellation-star";
+
+  star.style.left = Math.random() * 100 + "vw";
+  star.style.top = Math.random() * 100 + "vh";
+
+  document.body.appendChild(star);
+}
+
+for (let i = 0; i < 80; i++) createConstellation();
+
+function createDove() {
+  const d = document.createElement("div");
+  d.className = "dove";
+  d.innerHTML = "🕊️";
+
+  d.style.left = Math.random() * 100 + "vw";
+
+  document.body.appendChild(d);
+  setTimeout(() => d.remove(), 10000);
+}
+
+setInterval(createDove, 3000);
+
+
+document.addEventListener("click", (e) => {
+  for (let i = 0; i < 6; i++) {
+    const r = document.createElement("div");
+    r.className = "rose";
+    r.innerHTML = "🌹";
+
+    r.style.left = e.clientX + "px";
+    r.style.top = e.clientY + "px";
+
+    document.body.appendChild(r);
+    setTimeout(() => r.remove(), 1200);
+  }
+});
